@@ -1,0 +1,29 @@
+== BTL
+Basic Tilemap Lib
+MIT License
+
+=== Description
+Library for 2D games developing help in pure ruby.
+Allows tilemaps creation with 2 lines of code, no matter tiles size, layers, etc.
+Only draws in-screen tiles and autofits to window size.
+Maps format in .xml
+Right now only works wih Ruby/Gosu.
+
+== Usage
+=== Creating the Tilemap
+@foo = Tilemap.new(window, tileability)
+=== Loading a map
+@foo.load_map(filename)
+=== Updating and drawing the Tilemap
+@foo.update(camera_x, camera_y, zoom)
+=== Examples
+Theres some examples to show the basics of the lib
+
+== ToDo
+* Errors control
+* Load more formats
+* Compatibility with other libraries apart Gosu
+* Isometric maps
+* Collisions
+* Working Editor
+* Optional map compression

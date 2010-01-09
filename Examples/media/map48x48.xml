@@ -1,0 +1,30 @@
+<map>
+	<meta>
+		<name>Example Map</name>
+		<description>This is an example map</description>
+		<layers>1</layers>
+		<tileset>media/tiles.png</tileset>
+		<tile>
+			<width>48</width>
+			<height>48</height>
+			<size>1</size>
+			<nil>###</nil>
+		</tile>
+	</meta>
+	<layer>
+		<name>floor</name>
+		<width>10</width>
+		<height>10</height>
+		<zorder>1</zorder>
+		<map>0 0 0 0 0 0 0 0 0 0
+1 1 1 1 1 1 1 1 1 1
+0 0 0 0 0 0 0 0 0 0
+3 3 3 3 3 3 3 3 3 3
+5 0 0 0 0 0 0 0 0 2
+3 3 3 3 3 3 3 3 3 3
+0 0 0 0 0 0 0 0 0 0
+1 1 1 1 1 1 1 1 1 1
+0 0 0 0 0 0 0 0 0 0
+0 1 2 3 4 5 6 5 4 3</map>
+	</layer>
+</map>
