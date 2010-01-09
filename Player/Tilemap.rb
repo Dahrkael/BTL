@@ -7,13 +7,20 @@ include REXML
 include Gosu
 
 class Tilemap
+	attr_reader :name
+	attr_reader :description
+	attr_reader :number_of_layers
+	attr_reader :tile
+	attr_reader :tileability
+	attr_reader :tileset_filename
+	attr_reader :layers
 	def initialize(window, tileability)
 		@window = window
 		@tileability = tileability
 		@name = ""
 		@description = ""
 		@number_of_layers = nil
-		@tileset = nil
+		@tileset_filename = nil
 		@tile = 	{ 
 				:width 	=> nil, 
 				:height 	=> nil, 
@@ -27,7 +34,7 @@ class Tilemap
 		map = Document.new(File.new(filename))
 		@name 			= map.elements["map"].elements["meta"].elements["name"].text
 		@description 		= map.elements["map"].elements["meta"].elements["description"].text
-		@number_of_layer 	= map.elements["map"].elements["meta"].elements["layers"].text.to_i
+		@number_of_layers 	= map.elements["map"].elements["meta"].elements["layers"].text.to_i
 		@tileset_filename 	= map.elements["map"].elements["meta"].elements["tileset"].text
 		@tile[:width] 		= map.elements["map"].elements["meta"].elements["tile"].elements["width"].text.to_i
 		@tile[:height] 		= map.elements["map"].elements["meta"].elements["tile"].elements["height"].text.to_i
