@@ -14,10 +14,17 @@ Maps format in .xml
 
 Right now only works wih Ruby/Gosu.
 
+Support for Ortogonal and Isometric maps.
+
 == Usage
+=== Loading BTL
+
+require 'BTL'
+
 === Creating the Tilemap
 
-@foo = Tilemap.new(window, tileability)
+@foo = BTL::Ortogonal::Tilemap.new(window, tileability)
+@foo = BTL::Isometric::Tilemap.new(window)
 
 === Loading a map
 
@@ -34,7 +41,7 @@ Theres some examples to show the basics of the lib
 * Errors control
 * Load more formats
 * Compatibility with other libraries apart Gosu
-* Isometric maps
 * Collisions
 * Working Editor
 * Optional map compression
+* Add multilayer to isometric maps
