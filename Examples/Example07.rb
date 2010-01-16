@@ -7,12 +7,12 @@ include Gosu
 class Example < Gosu::Window
 	def initialize
 		super(640, 480, false)
-		self.caption = "Example 02 of Tilemap class - Camera position"
+		self.caption = "Example 07 of Tilemap class - Isometric Map"
 		@camera_x = 0
 		@camera_y = 0
 		@font = Font.new(self, default_font_name(), 22)
-		@spriteset = BTL::Ortogonal::Tilemap.new(self, true)
-		@spriteset.load_map("media/map100x100.xml")
+		@spriteset = BTL::Isometric::Tilemap.new(self)
+		@spriteset.load_map("media/isomap.xml")
 	end
 	
 	def update
@@ -32,7 +32,7 @@ class Example < Gosu::Window
 	end
 	
 	def draw
-		@font.draw("Use arrows to move the camera around the 100x100 map", 0, 0, 1)
+		@font.draw("Use arrows to move the camera around the map", 0, 0, 1)
 	end
 end
 

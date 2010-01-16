@@ -1,0 +1,47 @@
+<map>
+	<meta>
+		<name>Example Map</name>
+		<description>This is an example map</description>
+		<layers>1</layers>
+		<blocks textures_folder="media/textures">
+			<block identifier="1">
+				<left>wall.png</left>
+				<right>wall.png</right>
+				<top>green.png</top>
+			</block>
+			<block identifier="2">
+				<left>white.png</left>
+				<right>wall.png</right>
+				<top>brown.png</top>
+			</block>
+		</blocks>
+		<tile>
+			<width>100.0</width>
+			<height>100.0</height>
+			<r>3.0/7.0</r>
+			<size>1</size>
+			<nil>###</nil>
+		</tile>
+	</meta>
+	<layer>
+		<name>floor</name>
+		<width>17</width>
+		<height>15</height>
+		<zorder>1</zorder>
+		<map>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 1 1 1 1 1 1 1 1 1 2 2 1 1 1 1 0
+0 1 1 1 1 2 1 1 1 1 2 2 1 1 1 1 0
+0 1 1 1 1 1 1 1 0 0 0 0 1 0 0 0 0
+0 1 1 1 1 1 1 1 0 0 0 0 1 0 0 0 0
+0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 0
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 0
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 0
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0
+0 1 1 1 2 1 1 1 1 1 1 1 1 1 1 1 0
+0 1 1 1 2 1 1 1 1 0 0 1 1 1 1 1 0
+0 1 2 2 2 1 1 1 1 1 0 1 1 1 1 1 0
+0 1 1 1 2 2 2 2 2 1 1 1 1 1 1 1 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</map>
+	</layer>
+</map>

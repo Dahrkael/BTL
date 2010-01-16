@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'gosu'
 
-require 'media/Tilemap.rb'
+require 'BTL'
 include Gosu
 
 class Example < Gosu::Window
@@ -11,7 +11,7 @@ class Example < Gosu::Window
 		@camera_x = 0
 		@camera_y = 0
 		@font = Font.new(self, default_font_name(), 22)
-		@spriteset = Tilemap.new(self, true)
+		@spriteset = BTL::Ortogonal::Tilemap.new(self, true)
 		@spriteset.load_map("media/map32x32.xml")
 	end
 	

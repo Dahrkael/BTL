@@ -1,14 +1,14 @@
 require 'rubygems'
 require 'gosu'
 
-require 'media/Tilemap.rb'
+require 'BTL'
 include Gosu
 
 class Example < Gosu::Window
 	def initialize
 		super(640, 480, false)
 		self.caption = "Example 01 of Tilemap class - Loading a map"
-		@spriteset = Tilemap.new(self, true)
+		@spriteset = BTL::Ortogonal::Tilemap.new(self, true)
 		@spriteset.load_map("media/map32x32.xml")
 	end
 	
