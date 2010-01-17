@@ -71,6 +71,7 @@ module BTL
 						:width 	=> layer.elements["width"].text.to_i,
 						:height 	=> layer.elements["height"].text.to_i,
 						:zorder 	=> layer.elements["zorder"].text.to_i,
+						:order	=> layer.elements["order"].text.to_i,
 						:map 	=> layer.elements["map"].text.gsub!(" ","").split("\n"),
 						:tiles 	=> nil
 					}
@@ -95,7 +96,7 @@ module BTL
 							else
 								@blocks.each { |identifier, value|
 									if @layers[current_layer][:map][y][x*@tile[:size], @tile[:size]] == identifier
-										@layers[current_layer][:tiles][y][x*@tile[:size], @tile[:size]] = BTL::Isometric::Tile.new(@window, self, identifier, x, y, @tile[:r], @tile[:width], @tile[:height], @layers[current_layer][:zorder])
+										@layers[current_layer][:tiles][y][x*@tile[:size], @tile[:size]] = BTL::Isometric::Tile.new(@window, self, identifier, @layers[current_layer][:order], x, y, @tile[:r], @tile[:width], @tile[:height], @layers[current_layer][:zorder])
 									end
 								}
 							end #case

@@ -7,18 +7,12 @@ include Gosu
 class Example < Gosu::Window
 	def initialize
 		super(640, 480, false)
-		self.caption = "Example 07 of Tilemap class - Isometric Map"
+		self.caption = "Example 07 of Tilemap class - Multilayer Isometric Map"
 		@camera_x = 0
 		@camera_y = 0
-		@block_mode = false
 		@font = Font.new(self, default_font_name(), 22)
-		load_tilemap
-	end
-	
-	def load_tilemap
-		@spriteset = BTL::Isometric::Tilemap.new(self, @block_mode)
-		@spriteset.load_map("media/isometric_map.xml")
-		@block_mode = !@block_mode
+		@spriteset = BTL::Isometric::Tilemap.new(self, true)
+		@spriteset.load_map("media/multilayer_isometric_map.xml")
 	end
 	
 	def update
@@ -36,16 +30,9 @@ class Example < Gosu::Window
 			@camera_y += 10
 		end
 	end
-	def button_down(id)
-		case id
-			when KbReturn
-				load_tilemap
-		end
-	end
 	
 	def draw
 		@font.draw("Use arrows to move the camera around the map", 0, 0, 1)
-		@font.draw("Use enter to reload the map with/out blocked mode", 0, 22, 1)
 	end
 end
 

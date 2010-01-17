@@ -98,6 +98,8 @@ and nil (character/s in <layer><map> which will be an empty tile)
 <tile> includes an extra tag called <r>, to specify the perspective relation.
 <tile><width> and <tile><height> must contain a float, same with <tile><r>
 
+<layers><layer> includes <order> to specify the layers order to draw it correctly (from 0 to unlimited).
+
 #---------------------------------------
 # * Example Maps
 #---------------------------------------

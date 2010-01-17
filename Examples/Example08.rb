@@ -13,7 +13,7 @@ class Example < Gosu::Window
 		@zoom = 0.5
 		@font = Font.new(self, default_font_name(), 22)
 		@spriteset = BTL::Isometric::Tilemap.new(self, true)
-		@spriteset.load_map("media/isomap.xml")
+		@spriteset.load_map("media/isometric_map.xml")
 	end
 	
 	def update

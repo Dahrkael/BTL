@@ -12,10 +12,11 @@ module BTL
 			attr_accessor :width
 			attr_accessor :height
 			attr_accessor :r
-			def initialize(window, tilemap, identifier, tile_x, tile_y, r, width, height, z)
+			def initialize(window, tilemap, identifier, layer,tile_x, tile_y, r, width, height, z)
 				@window = window
 				@tilemap = tilemap
 				@identifier = identifier
+				@layer = layer
 				@zoom = 1
 				@z = z
 				@tile_x = tile_x
@@ -60,11 +61,11 @@ module BTL
 			end
 
 			def tile_x
-				return @tile_x
+				return @tile_x - @layer
 			end
 	
 			def tile_y
-				return @tile_y
+				return @tile_y - @layer
 			end
 	
 			def width
@@ -77,8 +78,8 @@ module BTL
 	
 			def update(camera_x, camera_y, zoom)
 				@zoom = zoom
-				@y = (@tile_x + @tile_y) * (@height / 2) * @r - camera_y
-				@x = (@tile_x - @tile_y) * (@width / 2) - camera_x
+				@y = (self.tile_x + self.tile_y) * (@height / 2) * @r - camera_y
+				@x = (self.tile_x - self.tile_y) * (@width / 2) - camera_x
 				self.draw
 			end
 	

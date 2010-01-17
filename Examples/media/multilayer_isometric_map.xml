@@ -26,10 +26,36 @@
 	</meta>
 	<layers>
 	<layer>
-		<name>floor</name>
+		<name>a</name>
+		<width>4</width>
+		<height>4</height>
+		<zorder>1</zorder>
+		<order>2</order>
+		<map>0 0 0 0
+0 2 2 0
+0 2 2 0
+0 0 0 0</map>
+	</layer>
+	<layer>
+		<name>c</name>
+		<width>6</width>
+		<height>6</height>
+		<zorder>1</zorder>
+		<order>1</order>
+		<map>0 0 0 0 0 0
+0 2 2 2 2 0
+0 2 2 2 2 0
+0 2 2 2 2 0
+0 2 2 2 2 0
+0 0 0 0 0 0</map>
+	</layer>
+
+	<layer>
+		<name>b</name>
 		<width>17</width>
 		<height>15</height>
 		<zorder>1</zorder>
+		<order>0</order>
 		<map>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 1 1 1 1 1 1 1 1 1 2 2 1 1 1 1 0
 0 1 1 1 1 2 1 1 1 1 2 2 1 1 1 1 0
@@ -46,5 +72,6 @@
 0 1 1 1 2 2 2 2 2 1 1 1 1 1 1 1 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</map>
 	</layer>
+
 	</layers>
 </map>
