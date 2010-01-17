@@ -1,4 +1,5 @@
 <map>
+	<type>Ortogonal</type>
 	<meta>
 		<name>Mapa de Ejemplo</name>
 		<description>Es un mapa de ejemplo</description>
@@ -11,6 +12,7 @@
 			<nil>###</nil>
 		</tile>
 	</meta>
+	<layers>
 	<layer>
 		<name>suelo</name>
 		<width>51</width>
@@ -113,4 +115,5 @@
 ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
 ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ###</map>
 	</layer>
+	</layers>
 </map>

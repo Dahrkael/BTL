@@ -32,6 +32,7 @@ module BTL
 			end
 			
 			def load_map(filename)
+				raise "Map type is not ortogonal" if BTL::check_map_type(filename) != "Ortogonal"
 				map = Document.new(File.new(filename))
 				@name 			= map.elements["map"].elements["meta"].elements["name"].text
 				@description 		= map.elements["map"].elements["meta"].elements["description"].text
@@ -42,7 +43,7 @@ module BTL
 				@tile[:size] 		= map.elements["map"].elements["meta"].elements["tile"].elements["size"].text.to_i
 				@tile[:nil] 			= map.elements["map"].elements["meta"].elements["tile"].elements["nil"].text
 				
-				map.elements.each("map/layer") { |layer|
+				map.elements.each("map/layers/layer") { |layer|
 					@layers[layer.elements["name"].text] = {
 						:width 	=> layer.elements["width"].text.to_i,
 						:height 	=> layer.elements["height"].text.to_i,

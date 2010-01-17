@@ -12,11 +12,11 @@ module BTL
 			attr_accessor :width
 			attr_accessor :height
 			attr_accessor :r
-			def initialize(window, texture1, texture2, texture3, tile_x, tile_y, r, width, height, z)
+			def initialize(window, tilemap, identifier, tile_x, tile_y, r, width, height, z)
 				@window = window
-				@texture1 = Image.new(@window, texture1, true)
-				@texture2 = Image.new(@window, texture2, true)
-				@texture3 = Image.new(@window, texture3, true)
+				@tilemap = tilemap
+				@identifier = identifier
+				@zoom = 1
 				@z = z
 				@tile_x = tile_x
 				@tile_y  = tile_y
@@ -28,35 +28,35 @@ module BTL
 			end
 	
 			def x1
-				return @x + @width/2
+				return (@x + @width/2) * @zoom
 			end
 
 			def x2
-				return @x + @width
+				return (@x + @width) * @zoom
 			end
 	
 			def x3
-				return @x
+				return (@x) * @zoom
 			end
 	
 			def x4
-				return @x +@width/2
+				return (@x +@width/2) * @zoom
 			end
 
 			def y1
-				return @y
+				return (@y) * @zoom
 			end
 
 			def y2
-				return @y+@height * (@r/2)
+				return (@y+@height * (@r/2)) * @zoom
 			end
 	
 			def y3
-				return @y+@height * (@r/2)
+				return (@y+@height * (@r/2)) * @zoom
 			end
 	
 			def y4
-				return @y+@width * @r
+				return (@y+@width * @r) * @zoom
 			end
 
 			def tile_x
@@ -68,26 +68,29 @@ module BTL
 			end
 	
 			def width
-				return @width 
+				return (@width) * @zoom
 			end
 
 			def height
-				return @height 
+				return (@height) * @zoom
 			end
 	
-			def update(camera_x, camera_y)
-				@y = (@tile_x + @tile_y) * (@height / 2) * @r - camera_y 
-				@x = (@tile_x - @tile_y) * (@width / 2) - camera_x 
+			def update(camera_x, camera_y, zoom)
+				@zoom = zoom
+				@y = (@tile_x + @tile_y) * (@height / 2) * @r - camera_y
+				@x = (@tile_x - @tile_y) * (@width / 2) - camera_x
 				self.draw
 			end
 	
 			def draw
 				# Suelo
-				@texture1.draw_as_quad(self.x1, self.y1, 0xffffffff, self.x2, self.y2, 0xffffffff, self.x3, self.y3, 0xffffffff, self.x4, self.y4, 0xffffffff, @z, :default) 
-				# Pared derecha
-				@texture3.draw_as_quad(self.x2, self.y2, 0xffffffff, self.x4, self.y4, 0xffffffff, self.x4, self.y4+(@height/2.5)+3, 0xff969696, self.x2, self.y2+(@height/2.5)+3, 0xff969696, @z, :default)
-				# Pared izquierda
-				@texture2.draw_as_quad(self.x3, self.y3, 0xffffffff, self.x4, self.y4, 0xffffffff, self.x4, self.y4+(@height/2.5)+3, 0xff969696, self.x3, self.y3+(@height/2.5)+3, 0xff969696, @z, :default)
+				@tilemap.blocks[@identifier][:texture1].draw_as_quad(self.x1, self.y1, 0xffffffff, self.x2, self.y2, 0xffffffff, self.x3, self.y3, 0xffffffff, self.x4, self.y4, 0xffffffff, @z, :default) 
+				if @tilemap.blocked == true
+					# Pared derecha
+					@tilemap.blocks[@identifier][:texture2].draw_as_quad(self.x2, self.y2, 0xffffffff, self.x4, self.y4, 0xffffffff, self.x4, self.y4+(self.height/2.5)+3, 0xff969696, self.x2, self.y2+(self.height/2.5)+3, 0xff969696, @z, :default)
+					# Pared izquierda
+					@tilemap.blocks[@identifier][:texture3].draw_as_quad(self.x3, self.y3, 0xffffffff, self.x4, self.y4, 0xffffffff, self.x4, self.y4+(self.height/2.5)+3, 0xff969696, self.x3, self.y3+(self.height/2.5)+3, 0xff969696, @z, :default)
+				end
 			end
 	
 		end

@@ -1,4 +1,5 @@
 <map>
+	<type>Ortogonal</type>
 	<meta>
 		<name>Example Map</name>
 		<description>This is an example map</description>
@@ -11,6 +12,7 @@
 			<nil>###</nil>
 		</tile>
 	</meta>
+	<layers>
 	<layer>
 		<name>floor</name>
 		<width>10</width>
@@ -27,4 +29,5 @@
 0 0 0 0 0 0 0 0 0 0
 0 1 2 3 4 5 6 5 4 3</map>
 	</layer>
+	</layers>
 </map>
