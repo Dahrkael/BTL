@@ -29,7 +29,7 @@
 		<name>a</name>
 		<width>4</width>
 		<height>4</height>
-		<zorder>1</zorder>
+		<zorder>2</zorder>
 		<order>2</order>
 		<map>0 0 0 0
 0 2 2 0
